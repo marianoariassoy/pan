@@ -1,26 +1,73 @@
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --red: #ff6f61;
+  --green: #d4e157;
+  --brown: #b39d8f;
+  --brown-dark: #a97c4f;
+  --pink: #edc9d2;
+  --pink-2: #ffaaff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-red: var(--red);
+  --color-green: var(--green);
+  --color-brown: var(--brown);
+  --color-brown-dark: var(--brown-dark);
+  --color-pink: var(--pink);
+  --color-pink-2: var(--pink-2);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family: var(--font-cabinet-grotesk), sans-serif;
+}
+
+.bg-multiply {
+  background-color: rgba(169, 124, 79, 0.8);
+  background-blend-mode: multiply;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.indicators {
+  display: flex !important;
+  justify-content: end !important;
+  gap: 0.5rem;
+}
+
+.indicators.active {
+  background: var(--color-red) !important;
+}
+
+.stats-strip-scroll::-webkit-scrollbar {
+  display: none;
 }
