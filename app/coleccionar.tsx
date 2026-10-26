@@ -11,7 +11,12 @@ type Data = {
   category: string;
 };
 
-const Coleccionar = () => {
+type Text = {
+  title: string;
+  text: string;
+};
+
+const Coleccionar = ({ text }: { text: Text[] }) => {
   const [data, setData] = useState<Data[]>([]);
   const [loading, setLoading] = useState(true);
   const apiURL = "https://marianoarias.soy/works/pan/api/coleccionar";
@@ -54,17 +59,7 @@ const Coleccionar = () => {
         </div>
         <div className="md:pl-14">
           <h2 className="text-xl font-extrabold">Asesoramiento</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
-            aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-            imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-            mollis pretium. Integer tincidunt. Cras dapi- bus. Vivamus elementum
-            semper nisi.
-          </p>
+          <p>{text[3].text}</p>
         </div>
 
         <div className="flex overflow-hidden bg-green/50">
@@ -77,16 +72,7 @@ const Coleccionar = () => {
             <h3 className="font-extrabold text-xl">
               ¿Querés iniciar tu colección?
             </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-              penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-              sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
-              vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-              imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-              mollis pretium. Integer tincidunt.
-            </p>
+            <p>{text[4].text}</p>
           </div>
         </div>
 
@@ -98,16 +84,7 @@ const Coleccionar = () => {
 
           <div className="flex-1 px-8 py-4">
             <h3 className="font-extrabold text-xl">¿Placer o inversión?</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-              penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-              sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
-              vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-              imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-              mollis pretium. Integer tincidunt.
-            </p>
+            <p>{text[5].text}</p>
           </div>
         </div>
 

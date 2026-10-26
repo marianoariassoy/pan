@@ -10,7 +10,7 @@ const social = () => {
           aria-label={social.label}
           target="_blank"
           rel="noopener noreferrer "
-          className="bg-green rounded-full w-7 h-7 flex items-center justify-center hover:bg-brown-dark transition-colors duration-200"
+          className="bg-green rounded-full w-9 h-9 flex items-center justify-center hover:bg-red hover:text-white transition-colors duration-200"
         >
           <i className={social.icon} aria-hidden="true" />
         </a>

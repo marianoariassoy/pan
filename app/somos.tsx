@@ -2,16 +2,18 @@ import Container from "@/components/container";
 import Equipo from "@/components/equipo";
 import Evolucion from "@/components/evolucion";
 
-const somospan = () => {
+type Data = {
+  title: string;
+  text: string;
+};
+
+const somospan = ({ text }: { text: Data[] }) => {
   return (
     <section className="scroll-m-20" id="somos">
       <Container>
         <div>
           <h1 className="text-2xl md:text-5xl font-bold text-red">Somos PAN</h1>
-          <p className="md:pl-14">
-            PAN es una plataforma de gestión cultural enfocada en
-            comercialización, curaduría y educación de arte contemporáneo.
-          </p>
+          <p className="md:pl-14">{text[0].text}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xl">
           <div className="flex flex-col gap-y-4 border-b-2 md:border-b-0 md:border-l-2 md:border-r-2 border-brown border-dotted md:px-14 pb-8">
@@ -37,18 +39,13 @@ const somospan = () => {
         </div>
         <div className="md:pl-14 mt-4">
           <h2 className="font-extrabold text-xl">Nuestro propósito</h2>
-          <p>
-            Contribuir a un ecosistema del arte contemporáneo más conectado,
-            profesional y dinámico, acompañando a coleccionistas y artistas en
-            sus recorridos, articulando agentes culturales y creando
-            oportunidades que amplíen el impacto del arte en la sociedad.
-          </p>
+          <p>{text[1].text}</p>
         </div>
 
         <Equipo />
       </Container>
 
-      <Evolucion />
+      <Evolucion text={text} />
     </section>
   );
 };

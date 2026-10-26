@@ -10,7 +10,12 @@ type Data = {
   image: string;
 };
 
-const Curaduria = () => {
+type Text = {
+  title: string;
+  text: string;
+};
+
+const Curaduria = ({ text }: { text: Text[] }) => {
   const [data, setData] = useState<Data[]>([]);
   const [loading, setLoading] = useState(true);
   const apiURL = "https://marianoarias.soy/works/pan/api/curaduria";
@@ -38,17 +43,7 @@ const Curaduria = () => {
       <Container>
         <div className="md:pl-14 ">
           <h2 className="text-xl font-extrabold">Curaduría</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
-            aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-            imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-            mollis pretium. Integer tincidunt. Cras dapi- bus. Vivamus elementum
-            semper nisi.
-          </p>
+          <p>{text[6].text}</p>
         </div>
 
         <Galeria data={data} />

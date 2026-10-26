@@ -137,7 +137,7 @@ export default function StatsStrip() {
           justify-center rounded-full bg-white/95
           text-gray-800 shadow-md transition
           hover:bg-white disabled:pointer-events-none
-          disabled:opacity-0 md:flex
+          disabled:opacity-0 md:flex cursor-pointer
         "
       >
         <svg
@@ -239,7 +239,7 @@ export default function StatsStrip() {
           justify-center rounded-full bg-white/95
           text-gray-800 shadow-md transition
           hover:bg-white disabled:pointer-events-none
-          disabled:opacity-0 md:flex
+          disabled:opacity-0 md:flex cursor-pointer
         "
       >
         <svg
