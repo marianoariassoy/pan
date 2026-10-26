@@ -1,23 +1,23 @@
 type ItemLibro = {
   title: string;
-  description: string;
+  text: string;
   image: string;
 };
 
 const itemLibro = ({ data }: { data: ItemLibro }) => {
   return (
     <div className="flex flex-col gap-y-4">
-      <div className="aspect-5/4 overflow-hidden">
+      <div className="aspect-square md:aspect-5/4 overflow-hidden">
         <img
           src={data.image}
           alt={data.title}
           className="w-full h-full object-cover object-center"
         />
       </div>
-      <div className="flex justify-between gap-20">
-        <div className="flex gap-4 text-sm text-red w-4/5">
+      <div className="flex flex-col-reverse md:flex-row justify-between gap-4">
+        <div className="flex gap-4 text-base text-red md:w-4/5">
           <div className="w-130 h-2 bg-red translate-y-1 text-medium" />
-          <p> {data.description}</p>
+          <p> {data.text}</p>
         </div>
         <div className="shrink-0">
           <a

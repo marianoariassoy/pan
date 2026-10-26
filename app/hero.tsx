@@ -13,7 +13,7 @@ interface data {
 export default function Hero() {
   const [data, setData] = useState<data[]>([]);
   const [loading, setLoading] = useState(true);
-  const apiURL = process.env.NEXT_PUBLIC_API_URL + "/home";
+  const apiURL = "https://marianoarias.soy/works/pan/api/home";
 
   useEffect(() => {
     async function getData() {

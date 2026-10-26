@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import Galeria from "@/components/galeria-artistas";
 
-const somospan = () => {
+const Artistas = () => {
   return (
     <section className="bg-green scroll-m-20" id="artistas">
       <Container>
@@ -26,4 +26,4 @@ const somospan = () => {
   );
 };
 
-export default somospan;
+export default Artistas;

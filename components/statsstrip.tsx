@@ -1,62 +1,92 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, useEffect } from "react";
+import Loader from "@/components/loading";
 
-type StatItem = {
-  value: string;
-  label: string;
-  color: string;
-};
-
-const stats: StatItem[] = [
+const colors = [
   {
-    value: "+ de 30",
-    label: "Muestras realizadas\ncon artistas contemporáneos",
     color: "#ff6f61",
   },
   {
-    value: "+ de 50",
-    label: "Artistas",
     color: "#ffaaff",
   },
   {
-    value: "+ de 20",
-    label: "Alianzas y proyectos\ncon gestores culturales",
     color: "#000000",
   },
   {
-    value: "+ de 30",
-    label: "Textos curatoriales",
     color: "#d4e64d",
   },
   {
-    value: "+ de 7",
-    label: "Proyectos de\nMecenazgo",
     color: "#b6a194",
   },
   {
-    value: "+ de 10",
-    label: "Articulaciones\nPúblico-Privadas",
     color: "#b6ff00",
   },
   {
-    value: "+ de 200",
-    label: "Artículos especializados\nde arte",
     color: "#a97c4f",
   },
   {
-    value: "+ de 10",
-    label: "Proyectos\nde infancia",
     color: "#ffaaff",
   },
   {
-    value: "+ de 10",
-    label: "Colaboraciones\nen libros de artistas",
+    color: "#ff6f61",
+  },
+  {
+    color: "#ff6f61",
+  },
+  {
+    color: "#ffaaff",
+  },
+  {
+    color: "#000000",
+  },
+  {
+    color: "#d4e64d",
+  },
+  {
+    color: "#b6a194",
+  },
+  {
+    color: "#b6ff00",
+  },
+  {
+    color: "#a97c4f",
+  },
+  {
+    color: "#ffaaff",
+  },
+  {
     color: "#ff6f61",
   },
 ];
 
+type data = {
+  id: number;
+  title: string;
+  text: string;
+};
+
 export default function StatsStrip() {
+  const [data, setData] = useState<data[]>([]);
+  const [loading, setLoading] = useState(true);
+  const apiURL = "https://marianoarias.soy/works/pan/api/evolucion";
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await fetch(apiURL);
+        if (!res.ok) throw new Error("Error al obtener datos de productos");
+        const data = await res.json();
+        setData(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    getData();
+  }, [apiURL]);
+
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -87,6 +117,8 @@ export default function StatsStrip() {
       behavior: "smooth",
     });
   };
+
+  if (loading) return <Loader />;
 
   return (
     <section
@@ -139,9 +171,9 @@ export default function StatsStrip() {
           WebkitOverflowScrolling: "touch",
         }}
       >
-        {stats.map((stat, index) => (
+        {data.map((stat, index) => (
           <div
-            key={`${stat.label}-${index}`}
+            key={`${stat.title}-${index}`}
             className="
               relative flex w-[190px] shrink-0
               flex-col text-center sm:w-[210px]
@@ -150,16 +182,16 @@ export default function StatsStrip() {
           >
             {/* Franja de color */}
             <div
-              className="relative h-[19px] w-full"
-              style={{ backgroundColor: stat.color }}
+              className="relative h-4.75 w-full"
+              style={{ backgroundColor: colors[index].color }}
             >
               {/* Separador verde tramado */}
-              {index < stats.length - 1 && (
+              {index < data.length - 1 && (
                 <span
                   aria-hidden="true"
                   className="
-                    absolute right-[-10px] top-0 z-10
-                    h-[19px] w-[20px]
+                    absolute -right-2.5 top-0 z-10
+                    h-4.75 w-5
                     border-x border-black/20
                   "
                   style={{
@@ -179,17 +211,17 @@ export default function StatsStrip() {
                  text-red
               "
             >
-              {stat.value}
+              {stat.title}
             </p>
 
             {/* Descripción */}
             <p
               className="
                 mt-0.5 whitespace-pre-line px-2
-                text-xl leading-6 font-medium
+                md:text-xl leading-5 md:leading-6 font-medium
               "
             >
-              {stat.label}
+              {stat.text}
             </p>
           </div>
         ))}

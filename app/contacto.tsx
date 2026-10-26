@@ -7,8 +7,8 @@ const Contacto = () => {
     <section className="bg-brown text-white" id="contacto">
       <Container>
         <h1 className="text-2xl md:text-4xl font-bold text-white">Contacto</h1>
-        <div className="flex gap-8">
-          <div className="flex flex-col items-center justify-between pb-10 pt-10">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col items-center justify-between gap-4 py-4 md:py-10">
             <img src="/assets/logo-redondo.svg" alt="Logo" className="w-34" />
             <a
               href="mailto:holapan@gmail.com"

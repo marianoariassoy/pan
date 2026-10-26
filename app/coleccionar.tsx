@@ -1,25 +1,38 @@
+"use client";
+
 import Container from "@/components/container";
 import Galeria from "@/components/galeria";
+import { useState, useEffect } from "react";
+import Loader from "@/components/loading";
 
-const somospan = () => {
-  const images = [
-    {
-      image:
-        "https://images.pexels.com/photos/16381405/pexels-photo-16381405.jpeg",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/16381405/pexels-photo-16381405.jpeg",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/16381405/pexels-photo-16381405.jpeg",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/16381405/pexels-photo-16381405.jpeg",
-    },
-  ];
+type Data = {
+  title: string;
+  image: string;
+  category: string;
+};
+
+const Coleccionar = () => {
+  const [data, setData] = useState<Data[]>([]);
+  const [loading, setLoading] = useState(true);
+  const apiURL = "https://marianoarias.soy/works/pan/api/coleccionar";
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await fetch(apiURL);
+        if (!res.ok) throw new Error("Error al obtener datos de productos");
+        const data = await res.json();
+        setData(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    getData();
+  }, [apiURL]);
+
+  if (loading) return <Loader />;
 
   return (
     <section className="scroll-m-20" id="coleccionar">
@@ -27,18 +40,20 @@ const somospan = () => {
         <h1 className="text-2xl md:text-5xl font-bold text-red">
           Coleccionar Arte
         </h1>
-        <div className="grid grid-cols-4 gap-4">
-          {images.map((item, index) => (
-            <img
-              key={index}
-              src={item.image}
-              alt=""
-              className="w-full aspect-4/5 object-center object-cover"
-            />
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {data
+            .filter((item) => item.category === "1")
+            .map((item, index) => (
+              <img
+                key={index}
+                src={item.image}
+                alt=""
+                className="w-full aspect-4/5 object-center object-cover"
+              />
+            ))}
         </div>
         <div className="md:pl-14">
-          <h2 className="text-lg font-extrabold">Asesoramiento</h2>
+          <h2 className="text-xl font-extrabold">Asesoramiento</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -59,7 +74,7 @@ const somospan = () => {
           </div>
 
           <div className="flex-1 px-8 py-4">
-            <h3 className="font-extrabold text-lg">
+            <h3 className="font-extrabold text-xl">
               ¿Querés iniciar tu colección?
             </h3>
             <p>
@@ -82,7 +97,7 @@ const somospan = () => {
           </div>
 
           <div className="flex-1 px-8 py-4">
-            <h3 className="font-extrabold text-lg">¿Placer o inversión?</h3>
+            <h3 className="font-extrabold text-xl">¿Placer o inversión?</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -96,10 +111,10 @@ const somospan = () => {
           </div>
         </div>
 
-        <Galeria />
+        <Galeria data={data.filter((item) => item.category === "2")} />
       </Container>
     </section>
   );
 };
 
-export default somospan;
+export default Coleccionar;

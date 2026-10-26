@@ -64,18 +64,16 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 flex justify-center ${
-        isScrolled
-          ? pathname.includes("/artistas")
-            ? "backdrop-blur-sm text-brown-dark bg-green/50"
-            : "backdrop-blur-sm text-brown-dark bg-white/50"
-          : "text-white"
-      }`}
+      className={`fixed top-0 w-full z-50 flex justify-center`}
       style={{ animation: "slideDown 0.5s ease-out 0.6s backwards" }}
     >
       <div
-        className={`flex flex-col p-4 pb-2 transition-all  ${
-          isScrolled ? "" : "bg-multiply "
+        className={`flex flex-col p-4 pb-4transition-all  ${
+          isScrolled
+            ? pathname.includes("/artistas")
+              ? "bg-green/70 backdrop-blur-sm text-brown-dark"
+              : "bg-white/70 backdrop-blur-sm text-brown-dark"
+            : "bg-multiply text-white"
         }`}
       >
         {/* Logo con tamaño dinámico */}
@@ -87,13 +85,13 @@ const Header = () => {
             <img
               src={isScrolled ? "/assets/logo-brown.svg" : "/assets/logo.svg"}
               alt="logo"
-              className={`transition-all ${isScrolled ? "h-14" : "h-26"}`}
+              className={`transition-all ${isScrolled ? "h-10 md:h-14" : "h-14 md:h-20"}`}
             />
           </button>
         </div>
 
         {/* Botón dinámico */}
-        <div className="flex justify-end -translate-y-3">
+        <div className="flex justify-end">
           <button
             className={`flex items-center justify-center rounded-full border-2 w-5 h-5 cursor-pointer transition-transform duration-300 hover:animate-none ${
               !open && "animate-pulse"
@@ -122,7 +120,7 @@ const Header = () => {
                   <a
                     href={pathname === "/" ? item.href : `/${item.href}`}
                     onClick={(e) => handleNavigation(e, item.href)}
-                    className={`w-full border-b not-last-of-type:w-full border-transparent text-xl font-medium pb-1 mb-2 pl-52 transition-colors duration-200 ${isScrolled ? "hover:border-brown-dark" : "hover:border-white"} `}
+                    className={`w-full border-b not-last-of-type:w-full border-transparent text-base md:text-xl font-medium pb-1 mb-2 pl-4 transition-colors duration-200 ${isScrolled ? "hover:border-brown-dark " : "hover:border-white"} `}
                   >
                     {item.label}
                   </a>

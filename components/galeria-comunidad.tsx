@@ -9,12 +9,14 @@ import Link from "next/link";
 interface data {
   id: number;
   image: string;
+  text: string;
+  slug: string;
 }
 
 export default function Hero() {
   const [data, setData] = useState<data[]>([]);
   const [loading, setLoading] = useState(true);
-  const apiURL = process.env.NEXT_PUBLIC_API_URL + "/home";
+  const apiURL = "https://marianoarias.soy/works/pan/api/comunidad";
 
   useEffect(() => {
     async function getData() {
@@ -60,26 +62,16 @@ export default function Hero() {
         >
           {data.map((item, index) => (
             <div key={index} className="h-full w-full flex flex-col gap-y-4">
-              <Link href={`/comunidad/xxx`}>
+              <Link href={`/comunidad/${item.slug}`}>
                 <img
                   src={item.image}
                   alt=""
-                  className="aspect-5/3 object-cover hover:opacity-80 transition-opacity duration-200"
+                  className="w-full h-full aspect-square md:aspect-5/3 object-cover hover:opacity-80 transition-opacity duration-200"
                 />
               </Link>
-              <div className="flex gap-4 text-sm text-brown-dark w-4/5">
+              <div className="flex gap-4 text-base text-brown-dark md:w-4/5">
                 <div className="w-130 h-2 bg-red translate-y-1 text-medium" />
-                <p>
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                  natoque penatibus et magnis dis parturient montes, nascetur
-                  ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-                  eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
-                  pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                  In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-                  justo. Nullam dictum felis eu pede mollis pretium. Integer
-                  tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-                </p>
+                <p>{item.text}</p>
               </div>
             </div>
           ))}

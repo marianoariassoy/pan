@@ -2,7 +2,7 @@ import { socialMenu } from "@/config/navigation";
 
 const social = () => {
   return (
-    <div className="absolute right-4 md:right-12 top-8 flex items-center gap-2 text-brown-dark">
+    <div className="absolute right-4 md:right-12 top-8 items-center gap-2 text-brown-dark hidden md:flex">
       {socialMenu.slice(0, 3).map((social) => (
         <a
           key={social.label}

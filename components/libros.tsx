@@ -1,15 +1,37 @@
-import ItemLibro from "@/components/item-libro";
+"use client";
 
-const libros = () => {
-  const data = [
-    {
-      title: "Libro 1",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.",
-      image:
-        "https://images.pexels.com/photos/16381405/pexels-photo-16381405.jpeg",
-    },
-  ];
+import { useState, useEffect } from "react";
+import ItemLibro from "@/components/item-libro";
+import Loader from "@/components/loading";
+
+type Data = {
+  title: string;
+  image: string;
+  text: string;
+};
+
+const Libros = () => {
+  const [data, setData] = useState<Data[]>([]);
+  const [loading, setLoading] = useState(true);
+  const apiURL = "https://marianoarias.soy/works/pan/api/libros";
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await fetch(apiURL);
+        if (!res.ok) throw new Error("Error al obtener datos de productos");
+        const data = await res.json();
+        setData(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    getData();
+  }, [apiURL]);
+
+  if (loading) return <Loader />;
 
   return (
     <div className="flex flex-col gap-y-8">
@@ -20,4 +42,4 @@ const libros = () => {
   );
 };
 
-export default libros;
+export default Libros;

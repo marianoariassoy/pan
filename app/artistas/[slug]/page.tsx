@@ -1,44 +1,48 @@
 import Container from "@/components/container";
+import { getDataBySlug } from "@/lib/api";
 
-const somospan = () => {
-  const data = {
-    name: "Mariela López",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.",
-    image:
-      "https://images.pexels.com/photos/11202887/pexels-photo-11202887.jpeg",
-    gallery: [
-      {
-        image:
-          "https://images.pexels.com/photos/11202887/pexels-photo-11202887.jpeg",
-      },
-      {
-        image:
-          "https://images.pexels.com/photos/11202887/pexels-photo-11202887.jpeg",
-      },
-      {
-        image:
-          "https://images.pexels.com/photos/11202887/pexels-photo-11202887.jpeg",
-      },
-    ],
-  };
+interface PageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+type Images = {
+  id: number;
+  image: string;
+};
+
+type Data = {
+  id: number;
+  title: string;
+  text: string;
+  image: string;
+  images: Images[];
+};
+
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+  const data = (await getDataBySlug("artistas", slug)) as Data;
 
   return (
-    <section className="bg-green scroll-m-20 pt-24 ">
+    <section className="bg-green scroll-m-20 pt-18 md:pt-24">
       <Container>
         <h1 className="text-2xl md:text-4xl font-bold text-red">Artistas</h1>
 
         <div className="flex flex-col gap-2">
-          <div className="h-full w-full aspect-5/3">
+          <div className="h-full w-full aspect-square md:aspect-5/3">
             <img
               src={data.image}
-              alt={data.name}
+              alt={data.title}
               className="w-full h-full object-cover object-center"
             />
           </div>
           <div className="grid grid-cols-3 gap-2">
-            {data.gallery.map((item, index) => (
-              <div key={index} className="h-full w-full aspect-5/3">
+            {data.images.map((item, index) => (
+              <div
+                key={index}
+                className="h-full w-full aspect-square md:aspect-5/3"
+              >
                 <img
                   src={item.image}
                   alt=""
@@ -49,12 +53,10 @@ const somospan = () => {
           </div>
         </div>
         <div className="flex flex-col text-medium pb-8">
-          <h2 className="font-bold text-lg">{data.name}</h2>
-          <p>{data.description}</p>
+          <h2 className="font-bold text-lg">{data.title}</h2>
+          <p>{data.text}</p>
         </div>
       </Container>
     </section>
   );
-};
-
-export default somospan;
+}

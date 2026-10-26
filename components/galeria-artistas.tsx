@@ -9,12 +9,13 @@ import Link from "next/link";
 interface data {
   id: number;
   image: string;
+  slug: string;
 }
 
 export default function Hero() {
   const [data, setData] = useState<data[]>([]);
   const [loading, setLoading] = useState(true);
-  const apiURL = process.env.NEXT_PUBLIC_API_URL + "/home";
+  const apiURL = "https://marianoarias.soy/works/pan/api/artistas";
 
   useEffect(() => {
     async function getData() {
@@ -31,6 +32,8 @@ export default function Hero() {
     }
     getData();
   }, [apiURL]);
+
+  if (loading) return <Loader />;
 
   const indicators = () => {
     return (
@@ -59,9 +62,12 @@ export default function Hero() {
           }
         >
           {data.map((item, index) => (
-            <div key={index} className="h-full w-full aspect-5/3">
+            <div
+              key={index}
+              className="h-full w-full aspect-square md:aspect-5/3"
+            >
               <Link
-                href={`/artistas/xxx`}
+                href={`/artistas/${item.slug}`}
                 className="w-full h-full z-30 hover:opacity-80 transition-opacity duration-200"
               >
                 <img

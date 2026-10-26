@@ -64,8 +64,8 @@ body {
   gap: 0.5rem;
 }
 
-.indicators.active {
-  background: var(--color-red) !important;
+.indicators .active {
+  background: black !important;
 }
 
 .stats-strip-scroll::-webkit-scrollbar {
