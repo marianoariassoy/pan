@@ -38,7 +38,7 @@ export default function Hero() {
       id="hero"
     >
       {loading ? (
-        <div>
+        <div className="h-full w-full">
           <Loader />
         </div>
       ) : (
