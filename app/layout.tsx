@@ -36,6 +36,13 @@ export const metadata: Metadata = {
   title: "Pan. Arte Contemporáneo",
   description:
     "PAN es una plataforma de gestión cultural enfocada en comercialización, curaduría y educación de arte contemporáneo.",
+  keywords:
+    "pan, arte, contemporáneo, gestión cultural, comercialización, curaduría, educación de arte",
+  icons: {
+    icon: "/assets/favicon.svg",
+    shortcut: "/assets/favicon.svg",
+    apple: "/assets/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
