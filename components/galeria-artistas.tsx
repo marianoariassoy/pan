@@ -10,12 +10,15 @@ interface data {
   id: number;
   image: string;
   slug: string;
+  title: string;
 }
 
 export default function Hero() {
   const [data, setData] = useState<data[]>([]);
   const [loading, setLoading] = useState(true);
   const apiURL = "https://marianoarias.soy/works/pan/api/artistas";
+
+  console.log(data);
 
   useEffect(() => {
     async function getData() {
@@ -62,10 +65,7 @@ export default function Hero() {
           }
         >
           {data.map((item, index) => (
-            <div
-              key={index}
-              className="h-full w-full aspect-square md:aspect-5/3"
-            >
+            <div key={index} className="h-full w-full flex flex-col gap-2">
               <Link
                 href={`/artistas/${item.slug}`}
                 className="w-full h-full z-30 hover:opacity-80 transition-opacity duration-200"
@@ -73,9 +73,10 @@ export default function Hero() {
                 <img
                   src={item.image}
                   alt=""
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center aspect-square md:aspect-5/3"
                 />
               </Link>
+              <h2 className="font-medium">{item.title}</h2>
             </div>
           ))}
         </Slide>

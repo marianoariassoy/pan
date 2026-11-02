@@ -8,6 +8,7 @@ type Data = {
   title: string;
   image: string;
   text: string;
+  pdf: string;
 };
 
 const Libros = () => {

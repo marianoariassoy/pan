@@ -2,6 +2,7 @@ type ItemLibro = {
   title: string;
   text: string;
   image: string;
+  pdf: string;
 };
 
 const itemLibro = ({ data }: { data: ItemLibro }) => {
@@ -16,18 +17,23 @@ const itemLibro = ({ data }: { data: ItemLibro }) => {
       </div>
       <div className="flex flex-col-reverse md:flex-row justify-between gap-4">
         <div className="flex gap-4 text-base text-red md:w-4/5">
-          <div className="w-130 h-2 bg-red translate-y-1 text-medium" />
-          <p> {data.text}</p>
+          <div className="w-40 h-2 bg-red translate-y-1 text-medium" />
+          <p className="whitespace-break-spaces leading-snug "> {data.text}</p>
         </div>
-        <div className="shrink-0">
-          <a
-            href="#"
-            className="text-sm hover:text-red flex items-center gap-1"
-          >
-            <span>VER EL LIBRO</span>
-            <i className="fa-solid fa-chevron-right text-brown-dark"></i>
-          </a>
-        </div>
+
+        {data.pdf && (
+          <div className="shrink-0">
+            <a
+              href={data.pdf}
+              target="_blank"
+              rel=""
+              className="text-sm hover:text-red flex items-center gap-1"
+            >
+              <span className="font-medium">VER PDF</span>
+              <i className="fa-solid fa-chevron-right text-brown-dark"></i>
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

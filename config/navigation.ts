@@ -28,9 +28,9 @@ export const socialMenu = [
     icon: "fa-brands fa-instagram",
   },
   {
-    label: "Twitter",
-    href: "https://twitter.com/panartproject",
-    icon: "fa-brands fa-twitter",
+    label: "Linkedin",
+    href: "https://linkedin.com",
+    icon: "fa-brands fa-linkedin",
   },
   {
     label: "Facebook",

@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="flex items-center justify-center gap-8 md:gap-4 flex-wrap">
           {data.map((item, index) => (
             <div key={index} className="">
-              <img src={item.image} alt={item.title} className="h-24" />
+              <img src={item.image} alt={item.title} className="h-16" />
             </div>
           ))}
         </div>

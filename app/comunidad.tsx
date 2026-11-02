@@ -12,8 +12,12 @@ const somospan = ({ text }: { text: Data[] }) => {
     <section className="scroll-m-20" id="comunidad">
       <Container>
         <div>
-          <h1 className="text-2xl md:text-5xl font-bold text-red">Comunidad</h1>
-          <p className="md:pl-14">{text[8].text}</p>
+          <h1 className="text-2xl md:text-5xl font-bold text-red mb-4">
+            Comunidad
+          </h1>
+          <p className="md:pl-14 whitespace-break-spaces leading-snug">
+            {text[8].text}
+          </p>
         </div>
 
         <Libros />

@@ -43,7 +43,7 @@ const Curaduria = ({ text }: { text: Text[] }) => {
       <Container>
         <div className="md:pl-14 ">
           <h2 className="text-xl font-extrabold">Curaduría</h2>
-          <p>{text[6].text}</p>
+          <p className="whitespace-break-spaces leading-snug">{text[6].text}</p>
         </div>
 
         <Galeria data={data} />

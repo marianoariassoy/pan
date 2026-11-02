@@ -123,7 +123,7 @@ export default function StatsStrip() {
   return (
     <section
       aria-label="Estadísticas y trayectoria"
-      className="relative w-full px-4 md:px-12 mt-8"
+      className="relative w-full px-4 md:px-12 mt-8 pb-20"
     >
       {/* Flecha izquierda: solo desktop */}
       <button

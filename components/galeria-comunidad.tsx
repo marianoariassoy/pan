@@ -70,8 +70,10 @@ export default function Hero() {
                 />
               </Link>
               <div className="flex gap-4 text-base text-brown-dark md:w-4/5">
-                <div className="w-130 h-2 bg-red translate-y-1 text-medium" />
-                <p>{item.text}</p>
+                <div className="w-40 h-2 bg-red translate-y-1 text-medium" />
+                <p className="whitespace-break-spaces leading-snug">
+                  {item.text}
+                </p>
               </div>
             </div>
           ))}

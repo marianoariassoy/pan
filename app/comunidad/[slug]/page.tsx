@@ -52,10 +52,12 @@ export default async function Page({ params }: PageProps) {
           </div>
         </div>
         <div className="flex items-start gap-4 text-sm text-brown-dark md:w-4/5">
-          <div className="w-130 h-2 bg-red translate-y-2" />
+          <div className="w-40 h-2 bg-red translate-y-2" />
           <div>
             <h2 className="font-bold text-lg">{data.title}</h2>
-            <p>{data.text}</p>
+            <p className="whitespace-break-spaces leading-snug text-base">
+              {data.text}
+            </p>
           </div>
         </div>
       </Container>

@@ -59,7 +59,7 @@ const Coleccionar = ({ text }: { text: Text[] }) => {
         </div>
         <div className="md:pl-14">
           <h2 className="text-xl font-extrabold">Asesoramiento</h2>
-          <p>{text[3].text}</p>
+          <p className="whitespace-break-spaces leading-snug">{text[3].text}</p>
         </div>
 
         <div className="flex overflow-hidden bg-green/50">
@@ -72,7 +72,9 @@ const Coleccionar = ({ text }: { text: Text[] }) => {
             <h3 className="font-extrabold text-xl">
               ¿Querés iniciar tu colección?
             </h3>
-            <p>{text[4].text}</p>
+            <p className="whitespace-break-spaces leading-snug">
+              {text[4].text}
+            </p>
           </div>
         </div>
 
@@ -84,7 +86,9 @@ const Coleccionar = ({ text }: { text: Text[] }) => {
 
           <div className="flex-1 px-8 py-4">
             <h3 className="font-extrabold text-xl">¿Placer o inversión?</h3>
-            <p>{text[5].text}</p>
+            <p className="whitespace-break-spaces leading-snug">
+              {text[5].text}
+            </p>
           </div>
         </div>
 
