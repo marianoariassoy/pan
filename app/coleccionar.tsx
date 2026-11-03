@@ -6,9 +6,10 @@ import { useState, useEffect } from "react";
 import Loader from "@/components/loading";
 
 type Data = {
-  title: string;
+  id: number;
+  title?: string;
   image: string;
-  category: string;
+  category?: string;
 };
 
 type Text = {
@@ -61,7 +62,6 @@ const Coleccionar = ({ text }: { text: Text[] }) => {
           <h2 className="text-xl font-extrabold">Asesoramiento</h2>
           <p className="whitespace-break-spaces leading-snug">{text[3].text}</p>
         </div>
-
         <div className="flex overflow-hidden bg-green/50">
           <div className="flex w-10 shrink-0">
             <div className="w-1/2 bg-green" />
@@ -77,7 +77,6 @@ const Coleccionar = ({ text }: { text: Text[] }) => {
             </p>
           </div>
         </div>
-
         <div className="flex overflow-hidden bg-pink-2/50">
           <div className="flex w-10 shrink-0">
             <div className="w-1/2 bg-pink-2" />

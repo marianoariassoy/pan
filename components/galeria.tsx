@@ -4,7 +4,8 @@ import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
 type Data = {
-  title: string;
+  id: number;
+  title?: string;
   image: string;
   category?: string;
 };
@@ -15,6 +16,8 @@ export default function Hero({ data }: { data: Data[] }) {
       <div className="bg-brown-dark w-2 h-2 rounded-full cursor-pointer hover:bg-black"></div>
     );
   };
+
+  if (data.length === 0) return null;
 
   return (
     <section>

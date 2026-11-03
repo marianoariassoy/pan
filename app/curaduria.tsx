@@ -6,8 +6,10 @@ import Container from "@/components/container";
 import Galeria from "@/components/galeria";
 
 type Data = {
-  title: string;
+  id: number;
+  title?: string;
   image: string;
+  category?: string;
 };
 
 type Text = {

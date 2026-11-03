@@ -40,6 +40,8 @@ export default function Hero() {
     );
   };
 
+  if (data.length === 0) return null;
+
   return (
     <section>
       {loading ? (
@@ -69,9 +71,9 @@ export default function Hero() {
                   className="w-full h-full aspect-square md:aspect-5/3 object-cover hover:opacity-80 transition-opacity duration-200"
                 />
               </Link>
-              <div className="flex gap-4 text-base text-brown-dark md:w-4/5">
-                <div className="w-40 h-2 bg-red translate-y-1 text-medium" />
-                <p className="whitespace-break-spaces leading-snug">
+              <div className="flex gap-4 text-brown-dark">
+                <div className="w-24 h-2 bg-red translate-y-1 text-medium shrink-0" />
+                <p className="whitespace-break-spaces leading-snug text-base">
                   {item.text}
                 </p>
               </div>

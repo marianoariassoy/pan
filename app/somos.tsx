@@ -17,7 +17,7 @@ const somospan = ({ text }: { text: Data[] }) => {
         </p>
       </div>
 
-      <div className="bg-brown px-4 py-8">
+      <div className="bg-brown px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xl w-full max-w-4xl mx-auto">
           <div className="flex flex-col gap-y-4 border-b-2 md:border-b-0 md:border-l-2 md:border-r-2 border-foreground border-dotted md:px-14 pb-8">
             <h2 className="font-extrabold md:text-2xl">¿Qué hacemos?</h2>

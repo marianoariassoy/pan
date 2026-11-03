@@ -4,11 +4,19 @@ import { useState, useEffect } from "react";
 import ItemLibro from "@/components/item-libro";
 import Loader from "@/components/loading";
 
+type images = {
+  id: number;
+  image: string;
+  title?: string;
+  category?: string;
+};
+
 type Data = {
   title: string;
-  image: string;
   text: string;
+  image: string;
   pdf: string;
+  images: images[];
 };
 
 const Libros = () => {
