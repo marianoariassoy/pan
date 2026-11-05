@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Social from "@/components/social";
 import { mainMenu } from "@/config/navigation";
+import { Logo } from "@/lib/svgs";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -79,14 +80,10 @@ const Header = () => {
         {/* Logo con tamaño dinámico */}
         <div className="px-2 pt-2 flex justify-center">
           <button
-            className="cursor-pointer hover:opacity-80 transition-opacity "
+            className={`cursor-pointer hover:opacity-80 transition-all ${isScrolled ? "text-brown-dark text-sm" : "text-white text-xl"}`}
             onClick={(e) => handleNavigation(e, "#hero")}
           >
-            <img
-              src={isScrolled ? "/assets/logo-brown.svg" : "/assets/logo.svg"}
-              alt="logo"
-              className={`transition-all ${isScrolled ? "h-10 md:h-14" : "h-14 md:h-20"}`}
-            />
+            <Logo />
           </button>
         </div>
 
@@ -109,7 +106,7 @@ const Header = () => {
 
         {/* Contenedor animado del menú */}
         <div
-          className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          className={`overflow-hidden transition-all ${
             open ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0 mt-0"
           }`}
         >
@@ -120,7 +117,7 @@ const Header = () => {
                   <a
                     href={pathname === "/" ? item.href : `/${item.href}`}
                     onClick={(e) => handleNavigation(e, item.href)}
-                    className={`w-full border-b not-last-of-type:w-full border-transparent text-base md:text-xl font-medium pb-1 mb-2 pl-4 transition-colors duration-200 ${isScrolled ? "hover:border-brown-dark " : "hover:border-white"} `}
+                    className={`w-full border-b not-last-of-type:w-full border-transparent text-base md:text-lg font-medium pb-1 mb-2 pl-2  ${isScrolled ? "hover:border-brown-dark " : "hover:border-white"} `}
                   >
                     {item.label}
                   </a>
