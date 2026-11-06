@@ -54,7 +54,7 @@ export default function Equipo() {
 
             <a href={item.url} target="_blank" rel="noopener noreferrer">
               <i
-                className="fa-brands fa-instagram text-red hover:text-brown-dark transition-colors duration-200"
+                className="fa-solid fa-earth-americas text-red hover:text-brown-dark transition-colors duration-200 text-xl"
                 aria-hidden="true"
               />
             </a>

@@ -24,17 +24,17 @@ export const mainMenu = [
 export const socialMenu = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/panartproject/",
+    href: "https://www.instagram.com/pan.artecontemporaneo",
     icon: "fa-brands fa-instagram",
   },
   {
     label: "Linkedin",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/company/51650137",
     icon: "fa-brands fa-linkedin",
   },
   {
     label: "Facebook",
-    href: "https://www.facebook.com/panartproject/",
+    href: "https://www.facebook.com/PanComunidadArtes/",
     icon: "fa-brands fa-facebook",
   },
   {

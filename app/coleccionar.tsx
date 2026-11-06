@@ -9,7 +9,7 @@ type Data = {
   id: number;
   title?: string;
   image: string;
-  category?: string;
+  category?: number;
 };
 
 type Text = {
@@ -48,7 +48,7 @@ const Coleccionar = ({ text }: { text: Text[] }) => {
         </h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {data
-            .filter((item) => item.category === "1")
+            .filter((item) => item.category === 1)
             .map((item, index) => (
               <img
                 key={index}
@@ -91,7 +91,7 @@ const Coleccionar = ({ text }: { text: Text[] }) => {
           </div>
         </div>
 
-        <Galeria data={data.filter((item) => item.category === "2")} />
+        <Galeria data={data.filter((item) => item.category === 2)} />
       </Container>
     </section>
   );

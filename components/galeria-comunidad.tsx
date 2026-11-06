@@ -34,12 +34,6 @@ export default function Hero() {
     getData();
   }, [apiURL]);
 
-  const indicators = () => {
-    return (
-      <div className="bg-white w-2 h-2 rounded-full cursor-pointer hover:bg-black"></div>
-    );
-  };
-
   if (data.length === 0) return null;
 
   return (
@@ -54,12 +48,12 @@ export default function Hero() {
           infinite={true}
           transitionDuration={500}
           arrows={true}
-          indicators={indicators}
+          indicators={false}
           prevArrow={
-            <span className="absolute -bottom-8 hover:text-black text-white transition-opacity duration-200 fa-solid fa-chevron-left z-40"></span>
+            <span className="absolute top-120 hover:text-brown text-white transition-opacity duration-200 fa-solid fa-chevron-left z-50 ml-2"></span>
           }
           nextArrow={
-            <span className="absolute -bottom-8 left-8 hover:text-black text-white transition-opacity duration-200 fa-solid fa-chevron-right"></span>
+            <span className="absolute top-120 left-8 hover:text-brown text-white transition-opacity duration-200 fa-solid fa-chevron-right"></span>
           }
         >
           {data.map((item, index) => (

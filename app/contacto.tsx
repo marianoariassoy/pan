@@ -11,11 +11,11 @@ const Contacto = () => {
           <div className="flex flex-col items-center justify-between gap-4 py-4 md:py-10">
             <img src="/assets/logo-redondo.svg" alt="Logo" className="w-34" />
             <a
-              href="mailto:holapan@gmail.com"
+              href="mailto:comunidadpanarte@gmail.com"
               target="_blank"
               className="font-medium hover:underline"
             >
-              holapan@gmail.com
+              comunidadpanarte@gmail.com
             </a>
             <Social />
           </div>

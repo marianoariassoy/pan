@@ -19,10 +19,10 @@ async function TeamMemberContent({
   const data = await getDataBySlug("equipo", slug);
 
   return (
-    <div className="flex flex-col md:flex-row gap-x-20 gap-y-4">
+    <div className="flex flex-col md:flex-row gap-x-12 gap-y-4">
       <div className="flex flex-col gap-2">
         <div className="flex gap-2">
-          <div className="aspect-square overflow-hidden w-36">
+          <div className="aspect-square overflow-hidden w-44">
             <img
               src={data.image}
               alt={data.title}
@@ -31,7 +31,7 @@ async function TeamMemberContent({
           </div>
           <a href={data.url} target="_blank" rel="noopener noreferrer">
             <i
-              className="fa-brands fa-instagram text-red hover:text-brown-dark transition-colors duration-200"
+              className="fa-solid fa-earth-americas text-xl text-red hover:text-brown-dark transition-colors duration-200"
               aria-hidden="true"
             />
           </a>
