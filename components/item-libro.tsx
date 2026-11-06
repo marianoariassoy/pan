@@ -4,7 +4,7 @@ type images = {
   id: number;
   image: string;
   title?: string;
-  category?: string;
+  category?: number;
 };
 
 type ItemLibro = {

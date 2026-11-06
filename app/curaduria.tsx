@@ -9,7 +9,7 @@ type Data = {
   id: number;
   title?: string;
   image: string;
-  category?: string;
+  category?: number;
 };
 
 type Text = {
