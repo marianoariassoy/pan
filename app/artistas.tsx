@@ -1,5 +1,6 @@
 import Container from "@/components/container";
 import Galeria from "@/components/galeria-artistas";
+import Curaduria from "./curaduria";
 
 type Data = {
   title: string;
@@ -20,6 +21,8 @@ const Artistas = ({ text }: { text: Data[] }) => {
         </div>
 
         <Galeria />
+
+        <Curaduria text={text} />
       </Container>
     </section>
   );

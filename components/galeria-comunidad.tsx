@@ -10,6 +10,7 @@ interface data {
   id: number;
   image: string;
   text: string;
+  title: string;
   slug: string;
 }
 
@@ -66,10 +67,10 @@ export default function Hero() {
                 />
               </Link>
               <div className="flex gap-4 text-brown-dark">
-                <div className="w-24 h-2 bg-red translate-y-1 text-medium shrink-0" />
-                <p className="whitespace-break-spaces leading-snug text-base">
-                  {item.text}
-                </p>
+                <div className="w-12 md:w-24 h-2 bg-red translate-y-2 text-medium shrink-0" />
+                <div className="text-base">
+                  <h2 className="font-bold">{item.title}</h2>
+                </div>
               </div>
             </div>
           ))}

@@ -7,8 +7,8 @@ import Coleccionar from "./coleccionar";
 import Artistas from "./artistas";
 import Comunidad from "./comunidad";
 import Contacto from "./contacto";
-import Curaduria from "./curaduria";
 import Loader from "@/components/loading";
+import WhatsApp from "@/components/WhatsApp";
 
 type Data = {
   id: number;
@@ -46,10 +46,10 @@ const Page = () => {
 
   return (
     <>
+      <WhatsApp />
       <Hero />
       <SomosPan text={data} />
       <Coleccionar text={data} />
-      <Curaduria text={data} />
       <Artistas text={data} />
       <Comunidad text={data} />
       <Contacto />

@@ -20,9 +20,9 @@ const somospan = ({ text }: { text: Data[] }) => {
           </p>
         </div>
 
-        <Libros />
-
         <GaleriaComunidad />
+
+        <Libros />
       </Container>
     </section>
   );

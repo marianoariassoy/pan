@@ -1,6 +1,6 @@
 import Container from "@/components/container";
+import Volver from "@/components/volver";
 import { getDataBySlug } from "@/lib/api";
-import Link from "next/link";
 import { Suspense } from "react";
 
 interface PageProps {
@@ -52,13 +52,8 @@ export default function Page({ params }: PageProps) {
   return (
     <section className="mt-18 md:mt-24 scroll-m-20">
       <Container>
-        <Link
-          href="/"
-          className="absolute right-4 md:right-14 text-sm flex items-center gap-1 hover:text-red"
-        >
-          <i className="fa-solid fa-chevron-left text-brown-dark"></i>
-          <span className="font-medium">VOLVER</span>
-        </Link>
+        <Volver url="/" />
+
         <h1 className="text-2xl md:text-4xl font-bold text-red mb-6">
           Somos PAN
         </h1>

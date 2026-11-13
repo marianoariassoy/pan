@@ -123,7 +123,7 @@ export default function StatsStrip() {
   return (
     <section
       aria-label="Estadísticas y trayectoria"
-      className="relative w-full px-4 md:px-12 mt-8 pb-20"
+      className="relative w-full px-4 md:px-12 mt-8 pb-20 "
     >
       {/* Flecha izquierda: solo desktop */}
       <button
@@ -132,12 +132,12 @@ export default function StatsStrip() {
         onClick={() => scroll("left")}
         disabled={!canScrollLeft}
         className="
-          absolute left-4 top-1/2 z-20 hidden
-          h-10 w-10 -translate-y-1/2 items-center
+          absolute left-4 top-1/2 z-20 
+          h-12 w-12 -translate-y-1/2 items-center
           justify-center rounded-full bg-white/95
           text-gray-800 shadow-md transition
           hover:bg-white disabled:pointer-events-none
-          disabled:opacity-0 md:flex cursor-pointer
+          disabled:opacity-0 flex cursor-pointer
         "
       >
         <svg
@@ -234,12 +234,12 @@ export default function StatsStrip() {
         onClick={() => scroll("right")}
         disabled={!canScrollRight}
         className="
-          absolute right-4 top-1/2 z-20 hidden
-          h-10 w-10 -translate-y-1/2 items-center
+          absolute right-4 top-1/2 z-20 
+          h-12 w-12 -translate-y-1/2 items-center
           justify-center rounded-full bg-white/95
           text-gray-800 shadow-md transition
           hover:bg-white disabled:pointer-events-none
-          disabled:opacity-0 md:flex cursor-pointer
+          disabled:opacity-0 flex cursor-pointer
         "
       >
         <svg

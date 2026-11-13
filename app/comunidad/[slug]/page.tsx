@@ -1,5 +1,7 @@
 import Container from "@/components/container";
 import { getDataBySlug } from "@/lib/api";
+import Volver from "@/components/volver";
+import GaleriaModal from "@/components/galeria-modal";
 
 interface PageProps {
   params: Promise<{
@@ -26,38 +28,17 @@ export default async function Page({ params }: PageProps) {
   return (
     <section className="scroll-m-20 mt-18 md:mt-24">
       <Container>
+        <Volver url="/" />
+
         <h1 className="text-2xl md:text-4xl font-bold text-red">Comunidad</h1>
 
-        <div className="flex flex-col gap-2">
-          <div className="h-full w-full aspect-square md:aspect-5/3">
-            <img
-              src={data.image}
-              alt={data.title}
-              className="w-full h-full object-cover object-center"
-            />
-          </div>
-          <div className="grid grid-cols-3 gap-2">
-            {data.images.map((item, index) => (
-              <div
-                key={index}
-                className="h-full w-full aspect-square md:aspect-5/3"
-              >
-                <img
-                  src={item.image}
-                  alt=""
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <GaleriaModal images={data.images} image={data.image} />
+
         <div className="flex items-start gap-4 text-sm text-brown-dark">
-          <div className="w-24 h-2 bg-red translate-y-2 shrink-0" />
-          <div>
-            <h2 className="font-bold text-lg">{data.title}</h2>
-            <p className="whitespace-break-spaces leading-snug text-base">
-              {data.text}
-            </p>
+          <div className="w-12 md:w-24 h-2 bg-red translate-y-2 shrink-0" />
+          <div className="text-base">
+            <h2 className="font-bold">{data.title}</h2>
+            <p className="whitespace-break-spaces leading-snug">{data.text}</p>
           </div>
         </div>
       </Container>

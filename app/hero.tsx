@@ -33,7 +33,7 @@ export default function Hero() {
 
   return (
     <section
-      className="h-screen w-screen relative fade-in"
+      className="h-screen relative fade-in"
       style={{ animation: "fadeIn 0.8s ease-out" }}
       id="hero"
     >

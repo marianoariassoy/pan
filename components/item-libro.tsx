@@ -1,4 +1,7 @@
-import Galeria from "./galeria";
+"use client";
+
+import { useState } from "react";
+import ImageGalleryModal from "./ImageGalleryModal";
 
 type images = {
   id: number;
@@ -15,14 +18,29 @@ type ItemLibro = {
   images: images[];
 };
 
-const itemLibro = ({ data }: { data: ItemLibro }) => {
+const Libro = ({ data }: { data: ItemLibro }) => {
+  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+
   return (
     <div className="flex flex-col gap-y-4">
-      <Galeria data={data.images} />
+      <div>
+        <img
+          src={data.images[0].image}
+          className="w-full cursor-pointer"
+          onClick={() => setCurrentIndex(1)}
+        />
+      </div>
+
+      {/* Modal de galería */}
+      <ImageGalleryModal
+        images={data.images}
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
+      />
 
       <div className="flex flex-col-reverse md:flex-row justify-between gap-4 mt-4">
         <div className="flex gap-4 text-base text-red md:w-4/5">
-          <div className="w-24 h-2 bg-red translate-y-1 text-medium shrink-0" />
+          <div className="w-12 md:w-24 h-2 bg-red translate-y-1 text-medium shrink-0" />
           <p className="whitespace-break-spaces leading-snug text-base">
             {data.text}
           </p>
@@ -46,4 +64,4 @@ const itemLibro = ({ data }: { data: ItemLibro }) => {
   );
 };
 
-export default itemLibro;
+export default Libro;

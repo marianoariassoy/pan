@@ -39,7 +39,7 @@ export const socialMenu = [
   },
   {
     label: "Whatsapp",
-    href: "https://api.whatsapp.com/send?phone=+549897647171",
+    href: "https://api.whatsapp.com/send?phone=5491157966646",
     icon: "fa-brands fa-whatsapp",
   },
 ];

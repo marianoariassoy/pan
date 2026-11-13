@@ -41,7 +41,7 @@ const Curaduria = ({ text }: { text: Text[] }) => {
   if (loading) return <Loader />;
 
   return (
-    <div className="flex flex-col gap-y-4 border-brown border-t-2 ">
+    <div className="flex flex-col gap-y-4 border-foreground border-t">
       <Container>
         <div className="md:pl-14 ">
           <h2 className="text-xl font-extrabold">Curaduría</h2>

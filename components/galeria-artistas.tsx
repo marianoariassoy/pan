@@ -38,11 +38,11 @@ export default function Hero() {
 
   if (loading) return <Loader />;
 
-  const indicators = () => {
-    return (
-      <div className="bg-white w-2 h-2 rounded-full cursor-pointer hover:bg-black"></div>
-    );
-  };
+  const indicators = (index = 0) => (
+    <div className="indicator text-base cursor-pointer hover:underline -translate-y-2">
+      {index + 1}
+    </div>
+  );
 
   return (
     <section>
@@ -58,10 +58,10 @@ export default function Hero() {
           arrows
           indicators={indicators}
           prevArrow={
-            <span className="absolute -bottom-8 hover:text-black text-white transition-opacity duration-200 fa-solid fa-chevron-left"></span>
+            <span className="absolute -bottom-8 hover:text-white text-foreground transition-opacity duration-200 fa-solid fa-chevron-left"></span>
           }
           nextArrow={
-            <span className="absolute -bottom-8 left-8 hover:text-black text-white transition-opacity duration-200 fa-solid fa-chevron-right"></span>
+            <span className="absolute -bottom-8 left-8 hover:text-white text-foreground transition-opacity duration-200 fa-solid fa-chevron-right"></span>
           }
         >
           {data.map((item, index) => (
@@ -76,7 +76,7 @@ export default function Hero() {
                   className="w-full h-full object-cover object-center aspect-square md:aspect-5/3"
                 />
               </Link>
-              <h2 className="font-medium">{item.title}</h2>
+              <h2 className="font-medium text-base">{item.title}</h2>
             </div>
           ))}
         </Slide>
